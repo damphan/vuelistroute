@@ -1,0 +1,7 @@
+.selectable {
+    cursor: pointer;
+}
+
+.w-300px {
+    width: 400px !important;
+}
