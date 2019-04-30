@@ -40,10 +40,10 @@
     </b-col>
     <b-modal :id="userInfoModal.id" :title="'User Info'" ok-only>
         <div class="text-center">
-            <b-img :src="userInfoAvatar" rounded="circle"></b-img>
+            <b-img v-if="userInfoModal.item" :src="userInfoAvatar" rounded="circle"></b-img>
         </div>
-        <div class="text-center">
-            {{ userInfoName }}
+        <div v-if="userInfoModal.item" class="text-center">
+            {{ userInfoModal.item.first_name + ' ' + userInfoModal.item.last_name }}
         </div>
     </b-modal>
 </b-container>
@@ -80,12 +80,12 @@
             ...mapState({
                 userList: state => state.userList.userList
             }),
-            userInfoAvatar: function() {
-                return this.userInfoModal.item ? this.userInfoModal.item.avatar : '';
-            },
-            userInfoName: function() {
-                return this.userInfoModal.item ? this.userInfoModal.item.first_name + ' ' + this.userInfoModal.item.last_name : '';
-            },
+            // userInfoAvatar: function() {
+            //     return this.userInfoModal.item ? this.userInfoModal.item.avatar : '';
+            // },
+            // userInfoName: function() {
+            //     return this.userInfoModal.item ? this.userInfoModal.item.first_name + ' ' + this.userInfoModal.item.last_name : '';
+            // },
             pageOffset: function() {
                 return (this.currPage - 1) * this.perPage;
             },
