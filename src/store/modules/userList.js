@@ -36,7 +36,7 @@ export default {
             state.startCallback();
 
             user.getUsers(state.page, state.perPage)
-                .catch((error) => {
+                .catch(() => {
                     state.page = 1;
                     state.total = 0;
                 })
